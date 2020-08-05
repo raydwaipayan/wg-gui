@@ -13,8 +13,6 @@ public:
     ~ConfigDialog();
     QString getName();
     QString getConfig();
-private slots:
-    void on_buttonBox_accepted();
 
 private:
     Ui::ConfigDialog *ui;

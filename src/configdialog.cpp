@@ -19,7 +19,3 @@ QString ConfigDialog::getConfig()
 {
     return ui->config->toPlainText();
 }
-void ConfigDialog::on_buttonBox_accepted()
-{
-
-}
