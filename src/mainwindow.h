@@ -15,6 +15,10 @@ public:
     MainWindow(QWidget *parent = nullptr);
     ~MainWindow();
 
+private slots:
+    void on_listWidget_currentRowChanged(int currentRow);
+    void newTunnel();
+
 private:
     Ui::MainWindow *ui;
 };

@@ -156,8 +156,17 @@
         <height>211</height>
        </rect>
       </property>
+      <property name="font">
+       <font>
+        <underline>false</underline>
+        <strikeout>false</strikeout>
+       </font>
+      </property>
       <property name="title">
        <string>Interface</string>
+      </property>
+      <property name="checkable">
+       <bool>false</bool>
       </property>
       <widget class="QWidget" name="verticalLayoutWidget">
        <property name="geometry">
