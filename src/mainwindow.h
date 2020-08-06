@@ -33,5 +33,6 @@ private:
     QString current_interface, latest_handshake, transfer, public_key;
     int ci_index;
     QProcess *process;
+    const static QString path;
 };
 #endif // MAINWINDOW_H

@@ -10,7 +10,6 @@ MainWindow::MainWindow(QWidget *parent) :
     ci_index(-1)
 {
     ui->setupUi(this);
-    const QString path = "/etc/wireguard/";
     QFile File(":/src/ui/stylesheet.qss");
 
     File.open(QFile::ReadOnly);
@@ -31,7 +30,10 @@ MainWindow::MainWindow(QWidget *parent) :
 MainWindow::~MainWindow()
 {
     delete ui;
+    delete wg;
 }
+
+const QString MainWindow::path = "/etc/wireguard/";
 
 void MainWindow::processWgActive()
 {
@@ -63,6 +65,10 @@ void MainWindow::newTunnel()
 
     QString name   = cd.getName();
     QString config = cd.getConfig();
+
+    Config::write(config, path + name + ".conf");
+    confs = Config::getConfigs(path);
+    syncList();
 }
 
 void MainWindow::syncList()
