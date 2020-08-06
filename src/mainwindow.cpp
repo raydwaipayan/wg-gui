@@ -4,6 +4,8 @@
 #include "config.h"
 #include <QDebug>
 
+const QString MainWindow::path = "/etc/wireguard/";
+
 MainWindow::MainWindow(QWidget *parent) :
     QMainWindow(parent),
     ui(new Ui::MainWindow),
@@ -33,8 +35,6 @@ MainWindow::~MainWindow()
     delete wg;
 }
 
-const QString MainWindow::path = "/etc/wireguard/";
-
 void MainWindow::processWgActive()
 {
     QString out = wg->getProcessOutput();
@@ -47,7 +47,7 @@ void MainWindow::processWgActive()
     public_key        = dict["public key"];
 
     for (int i = 0; i < confs.size(); i++) {
-        if (confs[i].first.split('.')[0] == current_interface) {
+        if (confs[i].first == current_interface) {
             ci_index = i;
             break;
         }
@@ -77,7 +77,7 @@ void MainWindow::syncList()
 
     for (const auto& x:confs) {
         QListWidgetItem *temp = new QListWidgetItem();
-        temp->setText(x.first.split('.')[0]);
+        temp->setText(x.first);
         ui->listWidget->addItem(temp);
     }
 
@@ -100,7 +100,7 @@ void MainWindow::on_listWidget_currentRowChanged(int currentRow)
     if (currentRow == -1) {
         return;
     }
-    QString interface            = confs[currentRow].first.split('.')[0];
+    QString interface            = confs[currentRow].first;
     QMap<QString, QString>& dict = confs[currentRow].second;
 
     ui->interface_dns_server->setText(dict["DNS"]);

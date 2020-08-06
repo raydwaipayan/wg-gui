@@ -74,7 +74,7 @@ QVector<QPair<QString, QMap<QString, QString> > >Config::getConfigs(
 
         QString content             = Config::read(path + temp);
         QMap<QString, QString> dict = Config::parser(content, '=');
-        data.push_back(qMakePair(temp, dict));
+        data.push_back(qMakePair(temp.split('.')[0], dict));
     }
     closedir(dp);
     return data;
