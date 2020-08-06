@@ -56,5 +56,5 @@ void MainWindow::syncList()
 
 void MainWindow::on_listWidget_currentRowChanged(int currentRow)
 {
-    qDebug()<<currentRow;
+
 }
