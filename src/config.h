@@ -5,12 +5,19 @@
 #include <QFile>
 #include <QDataStream>
 
-class Config{
+class Config {
 public:
-    QMap<QString, QString> static parser(const QString &data, const QChar &delimiter);
-    QString static read(const QString &);
-    void static write(const QString &, const QString &);
-    QVector<QPair<QString,QString>> static getConfigs(const QString &);
+
+    QMap<QString, QString>static parser(
+        const QString& data,
+        const QChar  & delimiter);
+
+    QString static                                          read(const QString&);
+
+    void static                                             write(const QString&,
+                                                                  const QString&);
+    QVector<QPair<QString, QMap<QString, QString> > >static getConfigs(
+        const QString&);
 };
 
 #endif // CONFIG_H

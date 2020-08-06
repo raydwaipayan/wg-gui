@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>800</width>
-    <height>600</height>
+    <width>824</width>
+    <height>637</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -19,8 +19,8 @@
      <rect>
       <x>0</x>
       <y>0</y>
-      <width>801</width>
-      <height>571</height>
+      <width>831</width>
+      <height>611</height>
      </rect>
     </property>
     <property name="currentIndex">
@@ -45,7 +45,7 @@
        <rect>
         <x>250</x>
         <y>240</y>
-        <width>491</width>
+        <width>511</width>
         <height>241</height>
        </rect>
       </property>
@@ -56,9 +56,9 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>40</y>
+         <y>20</y>
          <width>131</width>
-         <height>191</height>
+         <height>181</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_2">
@@ -102,10 +102,10 @@
       <widget class="QWidget" name="verticalLayoutWidget_4">
        <property name="geometry">
         <rect>
-         <x>180</x>
-         <y>40</y>
+         <x>160</x>
+         <y>20</y>
          <width>311</width>
-         <height>191</height>
+         <height>181</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_4">
@@ -147,7 +147,7 @@
        </layout>
       </widget>
      </widget>
-     <widget class="QGroupBox" name="groupBox_2">
+     <widget class="QGroupBox" name="groupBox_interface">
       <property name="geometry">
        <rect>
         <x>250</x>
@@ -163,7 +163,7 @@
        </font>
       </property>
       <property name="title">
-       <string>Interface</string>
+       <string>Interface: </string>
       </property>
       <property name="checkable">
        <bool>false</bool>
@@ -172,9 +172,9 @@
        <property name="geometry">
         <rect>
          <x>20</x>
-         <y>40</y>
+         <y>20</y>
          <width>91</width>
-         <height>151</height>
+         <height>141</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout">
@@ -218,10 +218,10 @@
       <widget class="QWidget" name="verticalLayoutWidget_3">
        <property name="geometry">
         <rect>
-         <x>140</x>
-         <y>40</y>
+         <x>120</x>
+         <y>20</y>
          <width>351</width>
-         <height>151</height>
+         <height>141</height>
         </rect>
        </property>
        <layout class="QVBoxLayout" name="verticalLayout_3">
@@ -262,6 +262,32 @@
         </item>
        </layout>
       </widget>
+      <widget class="QPushButton" name="btnConnection">
+       <property name="geometry">
+        <rect>
+         <x>400</x>
+         <y>170</y>
+         <width>94</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
+      <widget class="QPushButton" name="btnEdit">
+       <property name="geometry">
+        <rect>
+         <x>290</x>
+         <y>170</y>
+         <width>94</width>
+         <height>30</height>
+        </rect>
+       </property>
+       <property name="text">
+        <string/>
+       </property>
+      </widget>
      </widget>
      <widget class="QPushButton" name="btnNewTunnel">
       <property name="geometry">
@@ -299,7 +325,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>800</width>
+     <width>824</width>
      <height>27</height>
     </rect>
    </property>

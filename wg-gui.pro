@@ -15,20 +15,24 @@ DEFINES += QT_DEPRECATED_WARNINGS LOCATION="/etc/wireguard/"
 # You can also select to disable deprecated APIs only up to a certain version of Qt.
 #DEFINES += QT_DISABLE_DEPRECATED_BEFORE=0x060000    # disables all the APIs deprecated before Qt 6.0.0
 
+RESOURCES = resources.qrc
+
 SOURCES += \
     src/config.cpp \
     src/configdialog.cpp \
     src/main.cpp \
-    src/mainwindow.cpp
+    src/mainwindow.cpp \
+    src/wireguard.cpp
 
 HEADERS += \
     src/config.h \
     src/configdialog.h \
-    src/mainwindow.h
+    src/mainwindow.h \
+    src/wireguard.h
 
 FORMS += \
-    ui/configdialog.ui \
-    ui/mainwindow.ui
+    src/ui/configdialog.ui \
+    src/ui/mainwindow.ui
 
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin

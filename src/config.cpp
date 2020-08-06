@@ -3,65 +3,78 @@
 #include <QDebug>
 #include <QProcess>
 
-QMap<QString,QString> Config::parser(const QString &data, const QChar &delimiter)
+QMap<QString, QString>Config::parser(const QString& data, const QChar& delimiter)
 {
-    QStringList lines=data.split('\n');
-    QMap<QString,QString> cmap;
-    for(int i=0;i<lines.size();i++)
+    QStringList lines = data.split('\n');
+    QMap<QString, QString> cmap;
+
+    for (int i = 0; i < lines.size(); i++)
     {
-        QString &line=lines[i];
-        int idx=-1;
-        for(int j=0;j<line.size();j++)
+        QString& line = lines[i];
+        int idx       = -1;
+
+        for (int j = 0; j < line.size(); j++)
         {
-            if(line[j]==delimiter)
+            if (line[j] == delimiter)
             {
-                idx=j;
+                idx = j;
                 break;
             }
         }
-        if(idx==-1)continue;
-        QString fp=line.mid(0,idx).trimmed();
-        QString lp=line.mid(idx+1,(line.size()-idx-1)).trimmed();
-        cmap[fp]=lp;
+
+        if (idx == -1) continue;
+        QString fp = line.mid(0, idx).trimmed();
+        QString lp = line.mid(idx + 1, (line.size() - idx - 1)).trimmed();
+        cmap[fp] = lp;
     }
     return cmap;
 }
 
-QString Config::read(const QString &filename)
+QString Config::read(const QString& filename)
 {
     QFile file(filename);
-    if(!file.open(QIODevice::ReadOnly))
-        return QString();
+
+    if (!file.open(QIODevice::ReadOnly)) return QString();
+
     QTextStream in(&file);
-    QString data=in.readAll();
+    QString     data = in.readAll();
+
     return data;
 }
 
-void Config::write(const QString &data, const QString &filename)
+void Config::write(const QString& data, const QString& filename)
 {
     QFile file(filename);
-    if(!file.open(QIODevice::WriteOnly))
-        return;
+
+    if (!file.open(QIODevice::WriteOnly)) return;
+
     QTextStream out(&file);
-    out<<data;
+
+    out << data;
 }
 
-QVector<QPair<QString,QString>> Config::getConfigs(const QString &path)
+QVector<QPair<QString, QMap<QString, QString> > >Config::getConfigs(
+    const QString& path)
 {
     struct dirent *entry;
     DIR *dp;
-    QVector<QPair<QString,QString>> data;
-    dp=opendir(path.toUtf8());
-    if(dp==NULL){
+    QVector<QPair<QString, QMap<QString, QString> > > data;
+
+    dp = opendir(path.toUtf8());
+
+    if (dp == NULL) {
         return data;
     }
-    while((entry=readdir(dp)))
-    {
-        QString temp=QString::fromUtf8(entry->d_name);
-        if(temp=="." || temp=="..") continue;
 
-        QString content=Config::read(path+temp);
-        data.push_back(qMakePair(temp,content));
+    while ((entry = readdir(dp)))
+    {
+        QString temp = QString::fromUtf8(entry->d_name);
+
+        if ((temp == ".") || (temp == "..")) continue;
+
+        QString content             = Config::read(path + temp);
+        QMap<QString, QString> dict = Config::parser(content, '=');
+        data.push_back(qMakePair(temp, dict));
     }
     closedir(dp);
     return data;
