@@ -4,6 +4,8 @@
 #include <QMainWindow>
 #include <QProcess>
 #include "wireguard.h"
+#include "config.h"
+
 
 QT_BEGIN_NAMESPACE
 namespace Ui { class MainWindow; }

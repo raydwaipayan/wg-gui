@@ -1,8 +1,6 @@
 #include "mainwindow.h"
 #include "ui_mainwindow.h"
 #include "configdialog.h"
-#include "config.h"
-#include <QDebug>
 
 const QString MainWindow::path = "/etc/wireguard/";
 
@@ -12,7 +10,7 @@ MainWindow::MainWindow(QWidget *parent) :
     ci_index(-1)
 {
     ui->setupUi(this);
-    QFile File(":/src/ui/stylesheet.qss");
+    QFile File(":ui/stylesheet.qss");
 
     File.open(QFile::ReadOnly);
     QString StyleSheet = QLatin1String(File.readAll());
