@@ -25,6 +25,7 @@ void WireGuard::processWgActive()
 WireGuard::~WireGuard()
 {
     delete process;
+    delete timer;
 }
 
 QString WireGuard::getProcessOutput()
