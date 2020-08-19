@@ -1,7 +1,7 @@
-#include "config.h"
-#include <dirent.h>
 #include <QDebug>
 #include <QProcess>
+#include "config.h"
+#include <dirent.h>
 
 QMap<QString, QString>Config::parser(const QString& data, const QChar& delimiter)
 {

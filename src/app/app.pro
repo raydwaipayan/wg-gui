@@ -3,6 +3,7 @@ TARGET = wg-gui
 
 CONFIG += qt
 QT += core gui
+DESTDIR = ../..
 greaterThan(QT_MAJOR_VERSION, 4): QT += widgets
 
 SOURCES += main.cpp \
@@ -23,7 +24,7 @@ LIBS += -L../wireguard -lwireguard
 include(../wireguard/wireguard.pri)
 
 unix:!macx {
-    target.files += $$OUT_PWD/$$TARGET
-    target.path = $$[QT_INSTALL_PREFIX]/bin
+    target.files += $$DESTDIR/$$TARGET
+    target.path = /usr/local/bin
     INSTALLS += target
 }
