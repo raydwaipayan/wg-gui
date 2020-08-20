@@ -262,7 +262,7 @@
         </item>
        </layout>
       </widget>
-      <widget class="QPushButton" name="btnConnection">
+      <widget class="QPushButton" name="btn_connection">
        <property name="geometry">
         <rect>
          <x>400</x>
@@ -275,7 +275,7 @@
         <string/>
        </property>
       </widget>
-      <widget class="QPushButton" name="btnEdit">
+      <widget class="QPushButton" name="btn_edit">
        <property name="geometry">
         <rect>
          <x>290</x>
@@ -285,11 +285,11 @@
         </rect>
        </property>
        <property name="text">
-        <string/>
+        <string>Edit</string>
        </property>
       </widget>
      </widget>
-     <widget class="QPushButton" name="btnNewTunnel">
+     <widget class="QPushButton" name="btn_new_tunnel">
       <property name="geometry">
        <rect>
         <x>60</x>
